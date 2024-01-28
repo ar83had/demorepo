@@ -47,27 +47,45 @@
       }
 
       #play_btn{
-        width: 40%;
-        height: 8vh;
+        background-color: red;
         font-size: 30px;
-        margin: 6vh auto 14vh auto;
+        width: 40%;
         display: block;
-        background-color: yellow;
-        border:none;
+        margin: 6vh auto 14vh auto;
+        height: 8vh;
         border-radius: 5px;
+        border:none;
       }
 
       #rat{
         border-radius: 4px;
       }
+      #win_h2{
+        display: none;
+        color: yellow;
+        font-size: 25px;
+        width:max-content;
+        text-align: center;
+        height: auto;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      #replace_id{
+        width: 100%;
+      }
     </style>
   </head>
   <body>
     <div id="heading">
-        <h2 style="font-size:60px;">Axe Gaming</h2>
+        <h2 style="font-size:6vh;">Axe Gaming</h2>
         <img id="main_img" src="/images/main_img.jpg" alt="loading...">
     </div>
-    <button id="play_btn" onclick="play_btn()">Play ...</button>
+
+    <div id="replace_id" >
+      <button id="play_btn"  onclick="play_btn()">Play ...</button>
+      <h2 id="win_h2" ></h2>
+    </div>
+
     <div id="rat">
         <div id="main_div">
             <div class="box" id="div1" onclick="play(id,0,0)"></div>
@@ -133,16 +151,26 @@
         (arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2]) ||
         (arr[0][2] == arr[1][1] && arr[1][1] == arr[2][0])
       ) {
-        document.getElementById("para").innerHTML=`${el} user win`;
-        location.reload()
+        winstetement(el);
+        //location.reload()
       }
       if (arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2] || arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col]) {
-        document.getElementById("para").innerHTML=`${el} user win`;
-        location.reload()
+        winstetement(el);
+        //location.reload()
       }
       if(count === 11){
         document.getElementById("para").innerHTML="Match will Draw";
         location.reload()
+      }
+
+      function winstetement(winner){
+        document.getElementById("win_h2").innerHTML=`${winner} User Win The Game`;
+        let node1 = document.getElementById("play_btn");
+        let node2=document.getElementById("win_h2");
+        node2.style.display="block";
+        node1.style.margin ="6vh auto 10vh auto";
+        node2.style.margin="2vh auto 4vh auto";
+        node1.style.height="6vh";
       }
     }
   </script>
