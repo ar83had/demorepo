@@ -28,10 +28,14 @@
         gap: 1vh 1vh;
         border: 3px solid rgb(23, 152, 9);
         border-radius: 8px;
+        text-align: center;
       }
       .box {
         background-color: rgb(23, 152, 9);
         border-radius: 4px;
+        box-sizing:content-box;
+        padding:40%;
+        font-size:x-large;
       }
 
       #main_img{
@@ -119,22 +123,34 @@
       el = "X";
     }
 
+    // function colorX(id){
+    //   document.getElementById(id).style.backgroundColor="red";
+    //   document.getElementById(id).style.Color="black";
+    // }
+
+    // function colorO(id){
+    //   document.getElementById(id).style.backgroundColor="yellow";
+    // }
     let count=2
-    function element(first_tu){
+    function element(first_tu,id){
       if(first_tu === "X"){
         if(count++ % 2 === 0){
+          //colorX(id);
           return "X"
         }
         else{
           return "O"
+          //colorO(id);
         }
       }
       if(first_tu === "O")
         if(count++ % 2===0){
           return "O"
+          //colorO(id);
         }
         else{
           return "X"
+          //colorX(id);
         }
     }
 
@@ -144,7 +160,7 @@
     }
 
     function play(id,row,col){
-      let el = element(first_tu)
+      let el = element(first_tu,id)
       document.getElementById(id).innerHTML=el
       arr[row][col] = el
       if (
