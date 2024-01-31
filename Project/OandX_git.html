@@ -67,7 +67,6 @@
       }
       #win_h2{
         display: none;
-        color: yellow;
         font-size: 25px;
         width:max-content;
         text-align: center;
@@ -157,8 +156,18 @@
     }
 
     let first_tu;
+    let btn_count=0;
     function play_btn(){
-        first_tu=prompt("user name(X/y)")   
+        if(btn_count==0)
+          first_tu=prompt("user name(X/y)")
+        if(btn_count%2==0){
+          document.getElementById("play_btn").innerHTML="Again...";
+          btn_count++;
+        }   
+        else{
+          location.reload();
+          btn_count++;
+        }
     }
 
     function play(id,row,col){
@@ -170,11 +179,9 @@
         (arr[0][2] == arr[1][1] && arr[1][1] == arr[2][0])
       ) {
         winstetement(el);
-        //location.reload()
       }
       if (arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2] || arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col]) {
         winstetement(el);
-        //location.reload()
       }
       if(count === 11){
         document.getElementById("para").innerHTML="Match will Draw";
@@ -182,7 +189,13 @@
       }
 
       function winstetement(winner){
-        document.getElementById("win_h2").innerHTML=`${winner} User Win The Game`;
+        document.getElementById("win_h2").innerHTML=`'${winner}' User Win The Game`;
+        if(winner === "X"){
+          document.getElementById("win_h2").style.color="red";
+        }
+        else{
+          document.getElementById("win_h2").style.color="yellow";
+        }
         let node1 = document.getElementById("play_btn");
         let node2=document.getElementById("win_h2");
         node2.style.display="block";
