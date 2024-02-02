@@ -86,7 +86,7 @@
     </div>
 
     <div id="replace_id" >
-      <button id="play_btn"  onclick="play_btn()">Play ...</button>
+      <button id="play_btn"  onclick="play_btn()">Play ....</button>
       <h2 id="win_h2" ></h2>
     </div>
 
@@ -103,7 +103,6 @@
             <div class="box" id="div9" onclick="play(id,2,2)"></div>
           </div>
     </div>
-    <p id="para"></p>
   </body>
   <script>
     const o = "O";
@@ -159,14 +158,13 @@
     let btn_count=0;
     function play_btn(){
         if(btn_count==0)
-          first_tu=prompt("user name(X/y)")
-        if(btn_count%2==0){
+          first_tu=prompt("user name(X/O)")
+        if(btn_count == 0){
           document.getElementById("play_btn").innerHTML="Again...";
           btn_count++;
         }   
         else{
           location.reload();
-          btn_count++;
         }
     }
 
@@ -204,6 +202,5 @@
         node1.style.height="6vh";
       }
     }
-    
   </script>
 </html>
