@@ -168,16 +168,21 @@
     function play_btn(){
         if(btn_count==0)
           first_tu=prompt("User Name (X/O)")
-          document.getElementById("main_img2").style.display="none";
-          let play_ground=document.getElementById("rat");
-          play_ground.style.display="block";
-        if(btn_count == 0){
-          document.getElementById("play_btn").innerHTML="Again...";
-          btn_count++;
-        }   
-        else{
-          location.reload();
-        }
+          if(first_tu)
+          {
+            document.getElementById("main_img2").style.display="none";
+            let play_ground=document.getElementById("rat");
+            play_ground.style.display="block";
+            if(btn_count == 0)
+            {
+              document.getElementById("play_btn").innerHTML="Again...";
+              btn_count++;
+            }
+            else
+            {
+              location.reload();
+            }
+          }   
     }
 
     function play(id,row,col){
@@ -211,7 +216,6 @@
         node2.style.display="block";
         node1.style.margin ="6vh auto 10vh auto";
         node2.style.margin="2vh auto 4vh auto";
-        node1.style.height="6vh";
       }
     }
   </script>
