@@ -2,19 +2,20 @@
 
 <!-- project are working just css left. -->
 
-
 <html>
   <head>
     <title>0&X game</title>
     <style>
-      *{
+      * {
         margin: 0;
         padding: 0;
       }
 
-      body{
+      body {
         background-color: black;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,7 +23,7 @@
 
       #main_div {
         width: 40vh;
-        display:grid;
+        display: grid;
         grid-template-columns: auto auto auto;
         grid-template-rows: 15vh 15vh 15vh;
         gap: 1vh 1vh;
@@ -34,24 +35,23 @@
       .box {
         background-color: rgb(23, 152, 9);
         border-radius: 4px;
-        box-sizing:content-box;
-        padding:40%;
-        font-size:x-large;
+        box-sizing: content-box;
+        padding: 40%;
+        font-size: x-large;
       }
 
-      #main_img{
+      #main_img {
         width: 20%;
         height: auto;
       }
 
-      #heading{
+      #heading {
         display: flex;
-        justify-content:flex-end;
+        justify-content: flex-end;
         margin-top: 5vh;
-
       }
 
-      #play_btn{
+      #play_btn {
         background-color: red;
         font-size: 30px;
         width: 40%;
@@ -59,28 +59,28 @@
         margin: 6vh auto 8vh auto;
         height: 8vh;
         border-radius: 5px;
-        border:none;
+        border: none;
       }
 
-      #rat{
+      #rat {
         border-radius: 4px;
         display: none;
       }
 
-      #win_h2{
+      #win_h2 {
         display: none;
         font-size: 25px;
-        width:max-content;
+        width: max-content;
         text-align: center;
         height: auto;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
 
-      #replace_id{
+      #replace_id {
         width: 100%;
       }
 
-      #main_img2{
+      #main_img2 {
         width: 100%;
         height: auto;
         object-fit: cover;
@@ -89,28 +89,28 @@
   </head>
   <body>
     <div id="heading">
-        <h2 style="font-size:6vh;color: white;">Axe Gaming</h2>
-        <img id="main_img" src="/images/main_img.jpg" alt="loading...">
+      <h2 style="font-size: 6vh; color: white">Axe Gaming</h2>
+      <img id="main_img" src="/images/main_img.jpg" alt="loading..." />
     </div>
 
-    <div id="replace_id" >
-      <button id="play_btn"  onclick="play_btn()">Play ....</button>
-      <h2 id="win_h2" ></h2>
+    <div id="replace_id">
+      <button id="play_btn" onclick="play_btn()">Play ....</button>
+      <h2 id="win_h2"></h2>
     </div>
 
-    <img src="/images/OandXgame.jpg" alt="loading..." id="main_img2">
+    <img src="/images/OandXgame.jpg" alt="loading..." id="main_img2" />
     <div id="rat">
-        <div id="main_div">
-            <div class="box" id="div1" onclick="play(id,0,0)"></div>
-            <div class="box" id="div2" onclick="play(id,0,1)"></div>
-            <div class="box" id="div3" onclick="play(id,0,2)"></div>
-            <div class="box" id="div4" onclick="play(id,1,0)"></div>
-            <div class="box" id="div5" onclick="play(id,1,1)"></div>
-            <div class="box" id="div6" onclick="play(id,1,2)"></div>
-            <div class="box" id="div7" onclick="play(id,2,0)"></div>
-            <div class="box" id="div8" onclick="play(id,2,1)"></div>
-            <div class="box" id="div9" onclick="play(id,2,2)"></div>
-          </div>
+      <div id="main_div">
+        <div class="box" id="div1" onclick="play(id,0,0)"></div>
+        <div class="box" id="div2" onclick="play(id,0,1)"></div>
+        <div class="box" id="div3" onclick="play(id,0,2)"></div>
+        <div class="box" id="div4" onclick="play(id,1,0)"></div>
+        <div class="box" id="div5" onclick="play(id,1,1)"></div>
+        <div class="box" id="div6" onclick="play(id,1,2)"></div>
+        <div class="box" id="div7" onclick="play(id,2,0)"></div>
+        <div class="box" id="div8" onclick="play(id,2,1)"></div>
+        <div class="box" id="div9" onclick="play(id,2,2)"></div>
+      </div>
     </div>
   </body>
   <script>
@@ -131,91 +131,90 @@
       el = "X";
     }
 
-    function colorX(id){
-      document.getElementById(id).style.backgroundColor="rgba(255, 0, 0, 0.893)";
-      document.getElementById(id).style.color="white";
+    function colorX(id) {
+      document.getElementById(id).style.backgroundColor =
+        "rgba(255, 0, 0, 0.893)";
+      document.getElementById(id).style.color = "white";
     }
 
-    function colorO(id){
-      document.getElementById(id).style.backgroundColor="rgba(255, 255, 0, 0.831)";
+    function colorO(id) {
+      document.getElementById(id).style.backgroundColor =
+        "rgba(255, 255, 0, 0.831)";
     }
 
-    let count=2
-    function element(first_tu,id){
-      if(first_tu === "X"){
-        if(count++ % 2 === 0){
+    let count = 2;
+    function element(first_tu, id) {
+      if (first_tu === "X") {
+        if (count++ % 2 === 0) {
           colorX(id);
-          return "X"
-        }
-        else{
+          return "X";
+        } else {
           colorO(id);
-          return "O"
+          return "O";
         }
       }
-      if(first_tu === "O")
-        if(count++ % 2===0){
+      if (first_tu === "O")
+        if (count++ % 2 === 0) {
           colorO(id);
-          return "O"
-        }
-        else{
+          return "O";
+        } else {
           colorX(id);
-          return "X"
+          return "X";
         }
     }
 
     let first_tu;
-    let btn_count=0;
-    function play_btn(){
-        if(btn_count==0)
-          first_tu=prompt("User Name (X/O)")
-          if(first_tu)
-          {
-            document.getElementById("main_img2").style.display="none";
-            let play_ground=document.getElementById("rat");
-            play_ground.style.display="block";
-            if(btn_count == 0)
-            {
-              document.getElementById("play_btn").innerHTML="Again...";
-              btn_count++;
-            }
-            else
-            {
-              location.reload();
-            }
-          }   
+    let btn_count = 0;
+    function play_btn() {
+      if (btn_count == 0) first_tu = prompt("User Name (X/O)");
+      if (first_tu) {
+        document.getElementById("main_img2").style.display = "none";
+        let play_ground = document.getElementById("rat");
+        play_ground.style.display = "block";
+        if (btn_count == 0) {
+          document.getElementById("play_btn").innerHTML = "Again...";
+          btn_count++;
+        } else {
+          location.reload();
+        }
+      }
     }
 
-    function play(id,row,col){
-      let el = element(first_tu,id)
-      document.getElementById(id).innerHTML=el
-      arr[row][col] = el
+    function play(id, row, col) {
+      let el = element(first_tu, id);
+      document.getElementById(id).innerHTML = el;
+      arr[row][col] = el;
       if (
         (arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2]) ||
         (arr[0][2] == arr[1][1] && arr[1][1] == arr[2][0])
       ) {
         winstetement(el);
       }
-      if (arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2] || arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col]) {
+      if (
+        (arr[row][0] == arr[row][1] && arr[row][1] == arr[row][2]) ||
+        (arr[0][col] == arr[1][col] && arr[1][col] == arr[2][col])
+      ) {
         winstetement(el);
       }
-      if(count === 11){
-        document.getElementById("para").innerHTML="Match will Draw";
-        location.reload()
+      if (count === 11) {
+        document.getElementById("para").innerHTML = "Match will Draw";
+        location.reload();
       }
 
-      function winstetement(winner){
-        document.getElementById("win_h2").innerHTML=`'${winner}' User Win The Game`;
-        if(winner === "X"){
-          document.getElementById("win_h2").style.color="red";
-        }
-        else{
-          document.getElementById("win_h2").style.color="yellow";
+      function winstetement(winner) {
+        document.getElementById(
+          "win_h2"
+        ).innerHTML = `'${winner}' User Win The Game`;
+        if (winner === "X") {
+          document.getElementById("win_h2").style.color = "red";
+        } else {
+          document.getElementById("win_h2").style.color = "yellow";
         }
         let node1 = document.getElementById("play_btn");
-        let node2=document.getElementById("win_h2");
-        node2.style.display="block";
-        node1.style.margin ="6vh auto 10vh auto";
-        node2.style.margin="2vh auto 4vh auto";
+        let node2 = document.getElementById("win_h2");
+        node2.style.display = "block";
+        node1.style.margin = "6vh auto 10vh auto";
+        node2.style.margin = "2vh auto 4vh auto";
       }
     }
   </script>
