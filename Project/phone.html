@@ -5,7 +5,6 @@
         <style>
             body
             {
-                background-color: black;
                 margin: 0;
                 padding: 0;
             }
@@ -13,15 +12,34 @@
             .item
             {
                 border: 1px solid red;
-                height: 40vh;
-                padding: 2vh 4vh;
+                height: 42vh;
+                padding: 2vh 2vh;
+                display: flex;
             }
 
             .phone
             {
-                border:1px solid yellow;
-                height:calc;
+                border:1px solid rgb(21, 255, 0);
+                height:40vh;
+                width: 40vh;
+                margin-top: 1vh;
+            }
 
+            .image
+            {
+                border:1px rgba(46, 46, 46, 0.644) solid;
+                height:max-content;
+                width: 28%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .image_next
+            {
+                display: inline-block;
+                font-size: 100px;
             }
         </style>
     </head>
@@ -29,7 +47,9 @@
     <body>
         <div class="item" id="item_1">
             <div class="image" id="image_1">
+                <span class="image_next">&#xab;</span>
                 <img class="phone" src="https://images-cdn.ubuy.co.in/634d031dba8fe623b47893cc-smart-phone-android-8-1-smartphone-hd.jpg" alt="">
+                <span class="image_next">&#xbb;</span>
             </div>
         </div>
     </body>
