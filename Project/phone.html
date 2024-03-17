@@ -40,6 +40,13 @@
             {
                 display: inline-block;
                 font-size: 100px;
+                background-color: rgba(255, 255, 255, 0);
+                border-color: rgba(255, 255, 255, 0);
+            }
+
+            .none
+            {
+                display: none;
             }
         </style>
     </head>
@@ -47,10 +54,53 @@
     <body>
         <div class="item" id="item_1">
             <div class="image" id="image_1">
-                <span class="image_next">&#xab;</span>
-                <img class="phone" src="https://images-cdn.ubuy.co.in/634d031dba8fe623b47893cc-smart-phone-android-8-1-smartphone-hd.jpg" alt="">
-                <span class="image_next">&#xbb;</span>
+                <span class="image_next" id="btn_1" onclick="scroll_l()">&#xab;</span>
+
+                <img class="phone" id="p1" src="https://images-cdn.ubuy.co.in/634d031dba8fe623b47893cc-smart-phone-android-8-1-smartphone-hd.jpg" alt="loading...">
+
+                <img class="phone none" id="p2" src="https://cdn.vox-cdn.com/thumbor/KA23i52Q1953XDw1_87hpmii6Jc=/0x0:2040x1360/768x768/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/24931305/236791_Apple_iPhone_15_and_15_Plus_review_DSeifert_0008.jpg" alt="loading..">
+
+                <img class="phone none" id="p3" src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?cs=srgb&dl=pexels-lisa-fotios-1092644.jpg&fm=jpg" alt="loading..">
+
+                <span class="image_next" id="btn_2" onclick="scroll_r()">&#xbb;</span>
             </div>
         </div>
     </body>
+
+    <script>
+class node
+{
+    constructor(data)
+    {
+        this.pre=this.next=null;
+        this.data=data;
+    }
+}
+
+let p1=document.getElementById("p1").getAttribute("src");
+let p2=document.getElementById("p2").getAttribute("src");
+let p3=document.getElementById("p3").getAttribute("src");
+phone1=new node(p1);
+phone2=new node(p2);
+phone3= new node(p3);
+phone1.pre = phone3;
+phone1.next=phone2;
+phone2.pre = phone1;
+phone2.next = phone3;
+phone3.pre = phone2;
+phone3.next = phone1;
+
+function scroll_l()
+{
+    document.getElementById("p1").src=phone1.pre.data;
+    phone1 = phone1.pre;
+}
+
+function scroll_r()
+{
+    document.getElementById("p1").src=phone1.next.data;
+    phone1 =phone1.next;
+}
+
+    </script>
 </html>
